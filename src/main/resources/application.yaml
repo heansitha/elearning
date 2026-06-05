@@ -1,11 +1,57 @@
+#spring:
+#  security:
+#    oauth2:
+#      resourceserver:
+#        jwt:
+#          issuer-uri: "http://127.0.0.1:8080/realms/master"
+#  jpa:
+#    hibernate:
+#      ddl-auto: create-drop
+#  detasource:
+#    url: jdbc:postgresql://localhost:5432/db_elearning_a01_m01
+#    driver-class-name: org.postgresql.Driver
+#    username: postgres
+#    password: asdf
+#  application:
+#    name: db_elearning_a01_m01
+
+
+#spring:
+#  security:
+#      oauth2:
+#      resourceserver:
+#        jwt:
+#         issuer-uri: "http://127.0.0.1:8080/realms/master"
+#  datasource:
+#    url: jdbc:postgresql://localhost:5432/db_elearning_a01_m01
+#    username: postgres
+#    password: asdf
+#    driver-class-name: org.postgresql.Driver
+#
+#  jpa:
+#    hibernate:
+#      ddl-auto: update
+#    show-sql: true
+#    properties:
+#      hibernate:
+#        dialect: org.hibernate.dialect.PostgreSQLDialect
+
+
 spring:
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://127.0.0.1:8080/realms/master
   jpa:
     hibernate:
-      ddl-auto: create-drop
-  detasource:
-    url: jdbc:postgresql://localhost:5432/db-elearning-a01-m01
+      ddl-auto: update
+  datasource:
+    url: jdbc:postgresql://localhost:5432/db_elearning_a01_m01
     driver-class-name: org.postgresql.Driver
     username: postgres
     password: asdf
   application:
-    name: elearning-a1-m1
+    name: db_elearning_a01_m01
+server:
+  port: 8888

@@ -1,15 +1,31 @@
 package co.istad.elearninga1m1.features.course;
 
+
+
 import co.istad.elearninga1m1.features.category.Category;
-import jakarta.persistence.ManyToOne;
+import co.istad.elearninga1m1.features.enrollment.Enrollment;
+import co.istad.elearninga1m1.features.instructor.InstructorProfile;
+import co.istad.elearninga1m1.features.video.Video;
+import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.util.List;
 
+@Getter
+@Setter
+@NoArgsConstructor
+@Entity
+@Table(name = "courses")
 public class Course {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String slug;
-    private String keyword;
+    private String keyword; // use for SEO
     private String title;
     private String description;
     private String thumbnail;
@@ -24,4 +40,18 @@ public class Course {
 
     @ManyToOne
     private Category category;
+
+    @OneToMany(mappedBy = "course")
+    private List<Video> videos;
+
+    @OneToMany(mappedBy = "course")
+    private List<Enrollment> enrollments;
+
+    @ManyToOne
+    @JoinColumn(name = "instructor_id")
+    private InstructorProfile instructorProfile;
+
+    private Boolean isPublished;
+    private Boolean isDeleted;
+
 }

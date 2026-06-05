@@ -1,16 +1,15 @@
 package co.istad.elearninga1m1.features.comment;
 
+
 import co.istad.elearninga1m1.features.video.Video;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.springframework.data.relational.core.mapping.Table;
 
 import java.time.LocalDateTime;
 
 @Getter
-
 @Setter
 @NoArgsConstructor
 @Entity

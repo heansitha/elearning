@@ -1,6 +1,8 @@
-package co.istad.elearninga1m1.features.student;
+package co.istad.elearninga1m1.features.enrollment;
+
 
 import co.istad.elearninga1m1.features.course.Course;
+import co.istad.elearninga1m1.features.student.StudentProfile;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -24,7 +26,7 @@ public class Enrollment {
 
     @ManyToOne
     @JoinColumn(name = "course_id")
-    private Courses course;
+    private Course course;
 
     private Boolean paymentStatus;
     private String paymentMethod;

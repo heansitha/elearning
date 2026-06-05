@@ -1,6 +1,6 @@
 package co.istad.elearninga1m1.features.student;
 
-import co.istad.elearninga1m1.features.course.Course;
+import co.istad.elearninga1m1.features.enrollment.Enrollment;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
@@ -15,7 +15,7 @@ import java.util.List;
 @Setter
 @NoArgsConstructor
 @Entity
-@Table(name = "studentProfiles")
+@Table(name = "student_profiles")
 public class StudentProfile {
     @Id
     private String userId;
