@@ -3,6 +3,7 @@ package co.istad.elearninga1m1.features.course;
 
 
 import co.istad.elearninga1m1.features.category.Category;
+import co.istad.elearninga1m1.features.config.auditing.BasedEntity;
 import co.istad.elearninga1m1.features.enrollment.Enrollment;
 import co.istad.elearninga1m1.features.instructor.InstructorProfile;
 import co.istad.elearninga1m1.features.video.Video;
@@ -10,9 +11,7 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-
 import java.math.BigDecimal;
-import java.time.LocalDateTime;
 import java.util.List;
 
 @Getter
@@ -20,7 +19,7 @@ import java.util.List;
 @NoArgsConstructor
 @Entity
 @Table(name = "courses")
-public class Course {
+public class Course extends BasedEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
@@ -35,8 +34,6 @@ public class Course {
     private String level;
     private BigDecimal price;
     private Float discountPercent;
-    private LocalDateTime createdAt;
-    private LocalDateTime updatedAt;
 
     @ManyToOne
     private Category category;

@@ -5,9 +5,12 @@ import co.istad.elearninga1m1.features.category.Category;
 import co.istad.elearninga1m1.features.category.CategoryRepository;
 import co.istad.elearninga1m1.features.course.dto.CourseResponse;
 import co.istad.elearninga1m1.features.course.dto.CreateCourseRequest;
+import co.istad.elearninga1m1.features.instructor.InstructorProfile;
+import co.istad.elearninga1m1.security.AuthUtils;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
+import org.springframework.security.oauth2.jwt.Jwt;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
@@ -46,12 +49,10 @@ public class CourseServiceImpl implements CourseService{
         course.setStarRating(0F);
         course.setIsDeleted(false);
         course.setIsPublished(false);
-        course.setCreatedAt(LocalDateTime.now());
-        course.setUpdatedAt(LocalDateTime.now());
+        course.setInstructorProfile(new InstructorProfile(AuthUtils.extractUserId()));
 
         course = courseRepository.save(course);
 
         return courseMapper.mapCourseToCourseResponse(course);
     }
-
 }
